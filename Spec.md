@@ -23,9 +23,9 @@ Confirm
 To Do
 
 
-[x] signup page: persists user into database
-[x] view clothes by categories
-[x] can view a single page for a piece of clothing
+[ ] signup page: persists user into database
+[ ] view clothes by categories
+[ ] can view a single page for a piece of clothing
 
 add capsule feature
 User can...
