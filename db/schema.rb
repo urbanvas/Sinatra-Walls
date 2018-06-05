@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20180603205443) do
   end
 
   create_table "walls", force: :cascade do |t|
+    t.string  "name"
     t.string  "location"
     t.integer "user_id"
   end
