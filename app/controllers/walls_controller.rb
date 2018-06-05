@@ -17,7 +17,21 @@ class WallsController < ApplicationController
   end
 
   post "/walls" do
-    @wall = Wall.create(location: params[:location], user_id: current_user.id)
+    @wall = Wall.create(location: params[:location],name: params[:name], user_id: current_user.id)
+    redirect "/show"
+  end
+
+  get "/walls/:id/edit" do
+    @wall = Wall.find_by(id: params[:id])
+    erb :"wall/edit_wall"
+  end
+
+  patch "/walls/:id/edit" do
+    @wall = Wall.find_by(id: params[:id])
+    @wall.name = params[:name]
+    @wall.location = params[:location]
+    @wall.save
+    redirect "/show"
   end
 
 end

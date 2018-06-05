@@ -5,6 +5,6 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use WallsController
+use ApplicationController
 use UsersController
-run ApplicationController
+run WallsController

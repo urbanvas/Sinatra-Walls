@@ -1,11 +1,8 @@
-<h1>Edit <%= @wall.name %></h1>
-
-<form action="/bags/<%=@bag.id %>" method="POST">
-  <label> Bag Name </label>
-  <input type="text" name="name" value="<%=@bag.name %>"> </br>
-
-  <label> Bag Capacity </label>
-  <input type="number" name="capacity" value="<%=@bag.capacity %>"> </br>
-
-  <input type="submit" value="Update">
+<form action="/walls/<%= @wall.id %>/edit" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+  <label>New Name:</label>
+  <input type="text" name="name">
+  <label>New Location:</label>
+  <input type="text" name="location">
+  <input type="submit">
 </form>

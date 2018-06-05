@@ -1,8 +1,7 @@
-<%= puts @user.id %>
 
 <p> Instagram Walls! <%= @user.username %>
 <% @user.walls.each do |wall| %>
   <ul>
-    <li><a href="/wall/<%=wall.id%>"><%= wall.name %></a></li>
+    <li><a href="/walls/<%=wall.id%>"><%= wall.name %></a></li>
   </ul>
 <% end %>
