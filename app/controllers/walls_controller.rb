@@ -16,6 +16,11 @@ class WallsController < ApplicationController
     end
   end
 
+  get "/walls/:id" do
+    @wall = Wall.find_by(id: params[:id])
+    erb :"wall/show_wall"
+  end
+
   post "/walls" do
     @wall = Wall.create(location: params[:location],name: params[:name], user_id: current_user.id)
     redirect "/show"
@@ -31,6 +36,12 @@ class WallsController < ApplicationController
     @wall.name = params[:name]
     @wall.location = params[:location]
     @wall.save
+    redirect "/show"
+  end
+
+  get "/walls/:id/delete" do
+    @wall = Wall.find_by(id: params[:id])
+    @wall.destroy
     redirect "/show"
   end
 
