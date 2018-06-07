@@ -1,5 +1,7 @@
 
-<p> Instagram Walls! <%= @user.username %>
+<h4> Instagram Walls! </h4>
+<h5> Hello, <%= @user.username%></h5>
+<a href="/walls/new">Create a new wall</a>
 <% @user.walls.each do |wall| %>
   <ul>
     <li><a href="/walls/<%=wall.id%>"><%= wall.name %></a></li>

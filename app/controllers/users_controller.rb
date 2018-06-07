@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     if !@user.nil? && @user == current_user
       erb :"user/show"
     end
-    
+
     if !logged_in?
       redirect "/show"
     else
@@ -50,6 +50,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect "/show"
     else
+      flash[:notice] # => "Thanks for signing up!"
       redirect "/"
     end
   end

@@ -33,12 +33,13 @@ class WallsController < ApplicationController
 
   patch "/walls/:id/edit" do
     @wall = Wall.find_by(id: params[:id])
-    @wall.name = params[:name]
-    @wall.location = params[:location]
+    @wall.name = params[:name] if params[:name] != ""
+    @wall.location = params[:location] if params[:location] != ""
     @wall.save
     redirect "/show"
   end
 
+  # Should my delete CRUD be a get request?
   get "/walls/:id/delete" do
     @wall = Wall.find_by(id: params[:id])
     @wall.destroy
