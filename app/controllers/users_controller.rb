@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   get "/users/:id" do
-    @user = User.find(params[:id])
+    @user = User.find(id: params[:id])
+
     if !@user.nil? && @user == current_user
       erb :"user/show"
     end
@@ -9,6 +10,7 @@ class UsersController < ApplicationController
     if !logged_in?
       redirect "/show"
     else
+      flash[:message] = "Please login"
       redirect "/"
     end
   end
@@ -24,8 +26,7 @@ class UsersController < ApplicationController
 
   post "/signup" do
     if User.find_by(username: params[:username])
-      flash[:message] = "Profile exists"
-      # get flash message to show up
+      flash[:message] = "Username exists"
       redirect "/signup"
     elsif !(params[:username].empty? || params[:password].empty? || params[:email].empty?)
       user = User.create(params)
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
 
   get "/login" do
     if logged_in?
+      flash[:message] = "!!!!Auto Logged In!!!!"
       redirect "/show"
     else
       erb :"user/login"
@@ -58,6 +60,7 @@ class UsersController < ApplicationController
   get "/logout" do
     if session[:user_id] != nil
       session.destroy
+      flash[:message] = "Logged Out!!!"
       redirect to "/"
     else
       redirect to "/"

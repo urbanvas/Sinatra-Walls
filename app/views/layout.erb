@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Neil's InstaWalls</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
   body {
@@ -10,12 +11,14 @@
     top: -100%;
     transform: translateY(50%);
     transform: translateX(28%);
+    font-family: 'Roboto Slab', serif;
 }
   </style>
 </head>
 <body>
   <h1>Welcome to Instagram Walls</h1>
   <h3>Let's Create the Greatest database of instagramable walls there ever was</h3>
+  <%= flash[:message] %>
   <div class="wrapper">
     <%= yield %>
   </div>

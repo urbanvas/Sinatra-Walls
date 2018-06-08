@@ -1,9 +1,10 @@
 require './config/environment'
-require 'rack-flash'
+require 'sinatra/base'
+require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
 
-  use Rack::Flash
+  register Sinatra::Flash
 
   configure do
     set :public_folder, 'public'
@@ -13,6 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    # flash[:message] = "Hooray, Flash is working!"
     erb :home
   end
 
