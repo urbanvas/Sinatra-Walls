@@ -3,7 +3,6 @@ require 'sinatra/base'
 require 'sinatra/flash'
 
 class ApplicationController < Sinatra::Base
-
   register Sinatra::Flash
 
   configure do
@@ -14,7 +13,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    # flash[:message] = "Hooray, Flash is working!"
     erb :home
   end
 
