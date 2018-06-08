@@ -5,8 +5,11 @@
 # Install #
 
 Run bundle to begin
+
 `bundle install`
+
 Launch the server with shotgun
+
 `shotgun`
 
 # Contributing #
